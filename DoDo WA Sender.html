@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>DoDo WA Sender</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;600&family=Readex+Pro:wght@500;700&display=swap">
+<style>
+:root{--bg:#F2F8F3;--card:#fff;--ink:#12332D;--mut:#4C6B63;--line:#CFE0D6;--g:#128C5B;--cta:#FFD23F;--bub:#D8F3C8;--wbg:#FDE8E2;--w:#A8321F;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0B1A17;--card:#12261F;--ink:#E4F3EC;--mut:#9DBBB0;--line:#244238;--g:#4FD69C;--bub:#1B4A38;--wbg:#3A1C16;--w:#FFB4A3}}
+:root[data-theme="dark"]{--bg:#0B1A17;--card:#12261F;--ink:#E4F3EC;--mut:#9DBBB0;--line:#244238;--g:#4FD69C;--bub:#1B4A38;--wbg:#3A1C16;--w:#FFB4A3}
+html{scroll-padding-top:env(safe-area-inset-top,0px);color-scheme:light dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.75 "IBM Plex Sans Arabic","Readex Pro",Tahoma,system-ui,sans-serif}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+html[lang="ar"] .e,html[lang="en"] .a{display:none}
+h1,h2,h3{font-family:"Readex Pro","IBM Plex Sans Arabic",Tahoma,sans-serif;line-height:1.25;margin:0}
+.wrap{max-width:1080px;margin:0 auto;padding-inline:20px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--bg);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font:700 19px "Readex Pro",sans-serif;display:flex;gap:8px;align-items:center}
+button,summary{font-family:inherit}
+.lang{background:none;border:1.5px solid var(--ink);color:var(--ink);border-radius:99px;padding:5px 16px;font-size:15px;cursor:pointer}
+:focus-visible{outline:3px solid var(--g);outline-offset:3px}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;padding-block:64px}
+h1{font-size:clamp(34px,5.6vw,58px);font-weight:700;letter-spacing:-.01em}
+.lead{font-size:19px;color:var(--mut);max-width:52ch;margin:20px 0 30px}
+.cta{display:inline-flex;gap:10px;align-items:center;background:var(--cta);color:#12332D;border:2px solid #12332D;border-radius:14px;padding:14px 28px;font:700 20px "Readex Pro",sans-serif;cursor:pointer;box-shadow:5px 5px 0 #12332D;transition:transform .12s,box-shadow .12s}
+html[dir="rtl"] .cta{box-shadow:-5px 5px 0 #12332D}
+.cta:hover{transform:translateY(2px);box-shadow:2px 2px 0 #12332D}
+.meta{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:18px;font-size:14px;color:var(--mut)}
+.note{font-size:14px;color:var(--mut);margin-top:10px;min-height:1.6em}
+.chat{background:var(--card);border:2px solid var(--ink);border-radius:20px;padding:18px;display:grid;gap:12px}
+.row{display:flex;gap:10px;align-items:flex-end;opacity:0;animation:in .45s forwards}
+.row:nth-child(1){animation-delay:.2s}.row:nth-child(2){animation-delay:.9s}.row:nth-child(3){animation-delay:1.6s}.row:nth-child(4){animation-delay:2.3s}
+@keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.av{flex:none;width:34px;height:34px;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center;font:700 14px "Readex Pro",sans-serif}
+.b{background:var(--bub);border-radius:14px;padding:8px 14px;font-size:15px;line-height:1.55}
+.b small{display:block;color:var(--mut);font-size:12px}
+.wait{justify-self:center;background:var(--cta);color:#12332D;border-radius:99px;padding:4px 16px;font:600 14px "Readex Pro",sans-serif}
+section{padding-block:56px;border-top:1px solid var(--line)}
+h2{font-size:clamp(26px,3.6vw,36px);margin-bottom:28px}
+.feat{display:grid;grid-template-columns:1fr 1fr;gap:26px 44px}
+.feat div{border-inline-start:4px solid var(--g);padding-inline-start:16px}
+h3{font-size:19px;margin-bottom:4px}
+.feat p,.steps p{margin:0;color:var(--mut);font-size:16px}
+.steps{list-style:none;margin:0;padding:0;counter-reset:s;max-width:720px}
+.steps li{counter-increment:s;display:grid;grid-template-columns:44px 1fr;gap:16px;padding-bottom:26px;position:relative}
+.steps li::before{content:counter(s);width:44px;height:44px;border-radius:50%;border:2px solid var(--ink);display:grid;place-items:center;font:700 18px "Readex Pro",sans-serif;background:var(--card)}
+.steps li:not(:last-child)::after{content:"";position:absolute;inset-inline-start:21px;top:46px;bottom:2px;border-inline-start:2px dashed var(--line)}
+code{direction:ltr;unicode-bidi:isolate;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:1px 8px;font-size:15px}
+.warn{background:var(--wbg);color:var(--w);border-radius:16px;padding:24px 28px;max-width:820px}
+.warn h2{margin-bottom:12px;font-size:24px}.warn ul{margin:0;padding-inline-start:22px}.warn li{margin:4px 0}
+details{border-bottom:1px solid var(--line);padding:14px 0;max-width:820px}
+summary{cursor:pointer;font:600 18px "Readex Pro","IBM Plex Sans Arabic",sans-serif}
+details p{margin:8px 0 0;color:var(--mut)}
+footer{padding:32px 0 44px;border-top:1px solid var(--line);font-size:14px;color:var(--mut)}
+@media(max-width:820px){.hero{grid-template-columns:1fr;gap:36px;padding-block:40px}.feat{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.row{animation:none;opacity:1}.cta{transition:none}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><div class="logo">🦤 DoDo WA Sender</div><button class="lang" id="lang" type="button"></button></div></header>
+<main>
+<div class="wrap hero">
+ <div>
+  <h1><span class="a">أرسل واتساب لقائمة أرقامك، واحد ورا التاني</span><span class="e">Send WhatsApp to your whole list, one by one</span></h1>
+  <p class="lead"><span class="a">إضافة كروم مجانية ترسل رسائل وصور وملفات عبر واتساب ويب لحد 1000 رقم، بتأخير بين الرسائل تحدده أنت.</span><span class="e">A free Chrome extension that sends messages, images and files through WhatsApp Web to up to 1,000 numbers, with the delay between messages set by you.</span></p>
+  <button class="cta" id="dl" type="button"><span class="a">حمّل الإضافة مجانًا</span><span class="e">Download for free</span></button>
+  <div class="meta"><span>v1.1.0</span><span>9 KB (ZIP)</span><span>Chrome · Edge · Brave</span></div>
+  <div class="note" id="note" role="status"></div>
+ </div>
+ <div class="chat" aria-hidden="true">
+  <div class="row"><div class="av"><span class="a">أ</span><span class="e">A</span></div><div class="b"><span class="a">أهلاً أحمد، عرض الأسبوع وصل 🎁</span><span class="e">Hi Ahmed, this week’s offer is here 🎁</span><small>✓✓</small></div></div>
+  <div class="row"><div class="av"><span class="a">م</span><span class="e">M</span></div><div class="b"><span class="a">أهلاً منى، عرض الأسبوع وصل 🎁</span><span class="e">Hi Mona, this week’s offer is here 🎁</span><small>✓✓</small></div></div>
+  <div class="row"><div class="av"><span class="a">ك</span><span class="e">K</span></div><div class="b"><span class="a">أهلاً كريم، عرض الأسبوع وصل 🎁</span><span class="e">Hi Karim, this week’s offer is here 🎁</span><small>✓</small></div></div>
+  <div class="row wait"><span class="a">الرسالة التالية بعد <b id="c1">21</b> ث</span><span class="e">Next message in <b id="c2">21</b>s</span></div>
+ </div>
+</div>
+
+<section><div class="wrap">
+ <h2><span class="a">اللي بتعمله الإضافة</span><span class="e">What it does</span></h2>
+ <div class="feat">
+  <div><h3><span class="a">مجانية وبياناتك عندك</span><span class="e">Free, and your data stays with you</span></h3><p><span class="a">من غير اشتراك أو حساب. الأرقام والرسائل بتتخزن في متصفحك فقط.</span><span class="e">No subscription, no account. Numbers and messages are stored only in your browser.</span></p></div>
+  <div><h3><span class="a">حتى 1000 رقم</span><span class="e">Up to 1,000 numbers</span></h3><p><span class="a">الصق القائمة، والإضافة بتشيل المكرر والغلط، وبتفهم الأرقام العربية (٠١٠…) وكود الدولة.</span><span class="e">Paste your list. Duplicates and invalid entries are removed, and Arabic digits and country codes are handled.</span></p></div>
+  <div><h3><span class="a">تأخير بين الرسائل</span><span class="e">Delay between messages</span></h3><p><span class="a">تأخير عشوائي بين أقل وأقصى عدد ثواني، واستراحة تلقائية كل عدد رسائل تحدده.</span><span class="e">A random delay between a minimum and maximum number of seconds, plus an automatic break every set number of messages.</span></p></div>
+  <div><h3><span class="a">نص وصور وملفات</span><span class="e">Text, images and files</span></h3><p><span class="a">ارفع صورة أو PDF أو أي ملف (حتى 16MB)، والرسالة بتتبعت ككابشن له.</span><span class="e">Attach an image, PDF or any file (up to 16 MB). Your message is sent as its caption.</span></p></div>
+  <div><h3><span class="a">رسالة باسم كل شخص</span><span class="e">A message with each person’s name</span></h3><p><span class="a">اكتب الرقم والاسم في سطر واحد، واستخدم {name} في الرسالة.</span><span class="e">Write the number and name on one line, then use {name} in your message.</span></p></div>
+  <div><h3><span class="a">إيقاف واستكمال وتقرير</span><span class="e">Stop, resume and report</span></h3><p><span class="a">وقّف في أي وقت وكمّل من حيث وقفت، ونزّل نتيجة كل رقم كملف CSV.</span><span class="e">Stop any time and resume where you left off. Download the result for every number as a CSV file.</span></p></div>
+ </div>
+</div></section>
+
+<section><div class="wrap">
+ <h2><span class="a">التركيب في 5 خطوات</span><span class="e">Install in 5 steps</span></h2>
+ <ol class="steps">
+  <li><div><h3><span class="a">حمّل الملف وفك الضغط</span><span class="e">Download and unzip</span></h3><p><span class="a">اضغط زر التحميل، ثم فك ضغط الملف في أي مكان على جهازك.</span><span class="e">Press the download button, then unzip the file anywhere on your computer.</span></p></div></li>
+  <li><div><h3><span class="a">افتح صفحة الإضافات</span><span class="e">Open the extensions page</span></h3><p><span class="a">اكتب <code>chrome://extensions</code> في شريط العنوان وفعّل <b>Developer mode</b>.</span><span class="e">Type <code>chrome://extensions</code> in the address bar and turn on <b>Developer mode</b>.</span></p></div></li>
+  <li><div><h3><span class="a">حمّل الفولدر</span><span class="e">Load the folder</span></h3><p><span class="a">اضغط <b>Load unpacked</b> واختار فولدر <code>DoDo-WA-Sender</code>.</span><span class="e">Press <b>Load unpacked</b> and choose the <code>DoDo-WA-Sender</code> folder.</span></p></div></li>
+  <li><div><h3><span class="a">سجّل دخول واتساب ويب</span><span class="e">Log in to WhatsApp Web</span></h3><p><span class="a">افتح <code>web.whatsapp.com</code> وامسح الـ QR بتليفونك.</span><span class="e">Open <code>web.whatsapp.com</code> and scan the QR code with your phone.</span></p></div></li>
+  <li><div><h3><span class="a">ابدأ الإرسال</span><span class="e">Start sending</span></h3><p><span class="a">اضغط أيقونة DoDo، الصق الأرقام واكتب الرسالة، حدد التأخير، واضغط <b>ابدأ</b>. سيب تبويب واتساب مفتوح.</span><span class="e">Click the DoDo icon, paste your numbers, write the message, set the delay and press <b>Start</b>. Keep the WhatsApp tab open.</span></p></div></li>
+ </ol>
+</div></section>
+
+<section><div class="wrap">
+ <div class="warn">
+  <h2><span class="a">استخدمها بحذر عشان رقمك ما يتحظرش</span><span class="e">Use it carefully so your number isn’t banned</span></h2>
+  <ul>
+   <li><span class="a">ابعت بس لناس وافقوا يستلموا منك.</span><span class="e">Message only people who agreed to hear from you.</span></li>
+   <li><span class="a">خلي التأخير 20 ثانية أو أكتر، واعمل استراحة كل 20–30 رسالة.</span><span class="e">Keep the delay at 20 seconds or more, with a break every 20–30 messages.</span></li>
+   <li><span class="a">جرّب الأول على رقمين أو ثلاثة، ويفضل رقم تانوي مش رقمك الأساسي.</span><span class="e">Test on two or three numbers first, ideally from a secondary number rather than your main one.</span></li>
+   <li><span class="a">واتساب ممكن يقيّد أي حساب بيرسل رسائل جماعية، والمسؤولية على المستخدم.</span><span class="e">WhatsApp may restrict any account that sends bulk messages, and the responsibility is the user’s.</span></li>
+  </ul>
+ </div>
+</div></section>
+
+<section><div class="wrap">
+ <h2><span class="a">أسئلة شائعة</span><span class="e">FAQ</span></h2>
+ <details><summary><span class="a">هل بيشتغل على الموبايل؟</span><span class="e">Does it work on a phone?</span></summary><p><span class="a">لا، بيشتغل على متصفحات الكمبيوتر المبنية على كروميوم: Chrome وEdge وBrave.</span><span class="e">No. It runs in desktop Chromium browsers: Chrome, Edge and Brave.</span></p></details>
+ <details><summary><span class="a">لازم الجهاز يفضل شغال؟</span><span class="e">Does my computer need to stay on?</span></summary><p><span class="a">أيوه، سيب تبويب واتساب ويب مفتوح والكمبيوتر صاحي لحد ما الإرسال يخلص.</span><span class="e">Yes. Keep the WhatsApp Web tab open and the computer awake until sending finishes.</span></p></details>
+ <details><summary><span class="a">هل أرقامي بتترفع على سيرفر؟</span><span class="e">Are my numbers uploaded to a server?</span></summary><p><span class="a">لا، كل حاجة بتتخزن وتشتغل داخل متصفحك.</span><span class="e">No. Everything is stored and runs inside your browser.</span></p></details>
+ <details><summary><span class="a">هل هي تابعة لواتساب؟</span><span class="e">Is it affiliated with WhatsApp?</span></summary><p><span class="a">لا، DoDo WA Sender أداة مستقلة وغير رسمية ومالهاش علاقة بواتساب أو Meta.</span><span class="e">No. DoDo WA Sender is an independent, unofficial tool with no connection to WhatsApp or Meta.</span></p></details>
+</div></section>
+</main>
+<footer><div class="wrap"><span class="a">DoDo WA Sender — أداة مستقلة غير تابعة لواتساب أو Meta.</span><span class="e">DoDo WA Sender — an independent tool, not affiliated with WhatsApp or Meta.</span></div></footer>
+<script>
+const ZIP_B64="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";
+const L={ar:{b:"English",ok:"تم تجهيز الملف. لو ما بدأش التحميل، جرّب مرة تانية.",no:"التحميل مش متاح هنا. افتح الصفحة في متصفحك العادي أو اطلب الملف من صاحب الصفحة."},en:{b:"العربية",ok:"File ready. If the download didn’t start, try again.",no:"Download isn’t available here. Open this page in your regular browser or ask the page owner for the file."}};
+let lang="ar";
+try{const s=localStorage.getItem("dodo-lang");if(s==="en"||s==="ar")lang=s;else if(!/^ar/i.test(navigator.language||"ar"))lang="en"}catch(e){}
+const $=id=>document.getElementById(id);
+function setLang(l){lang=l;const h=document.documentElement;h.lang=l;h.dir=l==="ar"?"rtl":"ltr";$("lang").textContent=L[l].b;$("note").textContent="";document.title="DoDo WA Sender";try{localStorage.setItem("dodo-lang",l)}catch(e){}}
+$("lang").onclick=()=>setLang(lang==="ar"?"en":"ar");
+setLang(lang);
+let n=21;setInterval(()=>{n=n<=1?24:n-1;$("c1").textContent=n.toLocaleString("ar-EG");$("c2").textContent=n},1000);
+function zipBlob(){const bin=atob(ZIP_B64),u=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)u[i]=bin.charCodeAt(i);return new Blob([u],{type:"application/zip"})}
+$("dl").onclick=async()=>{
+  const blob=zipBlob(),name="DoDo-WA-Sender.zip";
+  try{
+    const dl=(window.claude&&claude.use)?await claude.use("downloads"):null;
+    if(dl){await dl.save({filename:name,data:blob});return}
+  }catch(e){if(e&&e.code==="declined")return}
+  try{const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();a.remove();$("note").textContent=L[lang].ok}
+  catch(e){$("note").textContent=L[lang].no}
+};
+</script>
+</body>
+</html>
